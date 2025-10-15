@@ -11,12 +11,19 @@ An **AI-powered task planning system** that intelligently breaks down goals into
 ## 🚀 Features
 
 ✅ **AI-Powered Planning** – Uses GPT-4 to intelligently decompose complex goals
+
 ✅ **Smart Dependency Tracking** – Automatically identifies task prerequisites and sequences
+
 ✅ **Realistic Timeline Estimation** – Provides accurate time estimates based on task complexity
+
 ✅ **Priority Management** – Assigns priority levels (High / Medium / Low)
+
 ✅ **Progress Tracking** – Update task status and visualize progress
+
 ✅ **RESTful API** – Clean, well-documented backend API
+
 ✅ **Responsive Frontend** – Modern React-based user interface
+
 ✅ **Docker Support** – Containerized for easy deployment
 
 ---
@@ -364,3 +371,4 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 * Timeline visualization
 
 ---
+
