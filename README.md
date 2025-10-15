@@ -1,109 +1,129 @@
-Smart Task Planner
-An AI-powered task planning system that intelligently breaks down goals into actionable tasks with timelines and dependencies using Large Language Models.
+Here’s a polished **README.md** version of your Smart Task Planner project, properly formatted for GitHub with clear structure, Markdown styling, and emoji sections 👇
 
-🚀 Features
-AI-Powered Planning: Uses GPT-4 to intelligently decompose complex goals
+---
 
-Smart Dependency Tracking: Automatically identifies task prerequisites and sequences
+# 🧠 Smart Task Planner
 
-Realistic Timeline Estimation: Provides accurate time estimates based on task complexity
+An **AI-powered task planning system** that intelligently breaks down goals into actionable tasks with timelines, dependencies, and priorities using **Large Language Models (LLMs)**.
 
-Priority Management: Assigns priority levels (high/medium/low) to tasks
+---
 
-Progress Tracking: Update task status and track completion progress
+## 🚀 Features
 
-RESTful API: Clean, well-documented backend API
+✅ **AI-Powered Planning** – Uses GPT-4 to intelligently decompose complex goals
+✅ **Smart Dependency Tracking** – Automatically identifies task prerequisites and sequences
+✅ **Realistic Timeline Estimation** – Provides accurate time estimates based on task complexity
+✅ **Priority Management** – Assigns priority levels (High / Medium / Low)
+✅ **Progress Tracking** – Update task status and visualize progress
+✅ **RESTful API** – Clean, well-documented backend API
+✅ **Responsive Frontend** – Modern React-based user interface
+✅ **Docker Support** – Containerized for easy deployment
 
-Responsive Frontend: Modern React-based user interface
+---
 
-Docker Support: Containerized for easy deployment
+## 🏗️ System Architecture
 
-🏗️ System Architecture
-text
+```
 Frontend (React) ←→ Backend (FastAPI) ←→ OpenAI API
                          ↓
-                   SQLite Database
-📋 Prerequisites
-Docker and Docker Compose
+                   SQLite / PostgreSQL Database
+```
 
-OpenAI API key
+---
 
-Python 3.11+ (for local development)
+## 📋 Prerequisites
 
-Node.js 18+ (for local development)
+* **Docker** and **Docker Compose**
+* **OpenAI API key**
+* **Python 3.11+** (for local development)
+* **Node.js 18+** (for local development)
 
-🛠️ Quick Start
-Option 1: Docker (Recommended)
-Clone the repository
+---
 
-bash
+## 🛠️ Quick Start
+
+### **Option 1: Docker (Recommended)**
+
+```bash
 git clone <repository-url>
 cd smart-task-planner
-Set up environment variables
+```
 
-bash
+**Set up environment variables**
+
+```bash
 cp .env.example .env
 # Edit .env and add your OpenAI API key
-Start the application
+```
 
-bash
+**Start the application**
+
+```bash
 docker-compose up --build
-Access the application
+```
 
-Frontend: http://localhost:3000
+**Access the application**
 
-Backend API: http://localhost:8000
+* Frontend → [http://localhost:3000](http://localhost:3000)
+* Backend API → [http://localhost:8000](http://localhost:8000)
+* API Docs → [http://localhost:8000/docs](http://localhost:8000/docs)
 
-API Documentation: http://localhost:8000/docs
+---
 
-Option 2: Local Development
-Backend Setup
-Set up Python environment
+### **Option 2: Local Development**
 
-bash
+#### **Backend Setup**
+
+```bash
 cd backend
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies
-
-bash
 pip install -r requirements.txt
-Set environment variables
+```
 
-bash
+**Set environment variables**
+
+```bash
 export OPENAI_API_KEY=your_openai_api_key
 export DATABASE_URL=sqlite:///./planner.db
-Run the backend
+```
 
-bash
+**Run the backend**
+
+```bash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-Frontend Setup
-Install dependencies
+```
 
-bash
+#### **Frontend Setup**
+
+```bash
 cd frontend
 npm install
-Run the frontend
-
-bash
 npm run dev
-Access the application
+```
 
-Frontend: http://localhost:3000
+**Access:** [http://localhost:3000](http://localhost:3000)
 
-📚 API Documentation
-Generate Task Plan
-http
-POST /plan
-Content-Type: application/json
+---
 
+## 📚 API Documentation
+
+### **Generate Task Plan**
+
+**POST** `/plan`
+
+**Request:**
+
+```json
 {
   "goal": "Launch a mobile app in 3 weeks",
   "timeframe": "3 weeks"
 }
-Response:
+```
 
-json
+**Response:**
+
+```json
 {
   "goal_id": "uuid",
   "tasks": [
@@ -120,38 +140,55 @@ json
   ],
   "timeline_summary": "Overall timeline description"
 }
-Get Goal Details
-http
-GET /goals/{goal_id}
-Update Task Status
-http
-PUT /tasks/{task_id}?status=completed
-🔧 Configuration
-Environment Variables
-Create a .env file in the project root:
+```
 
-env
+### **Get Goal Details**
+
+**GET** `/goals/{goal_id}`
+
+### **Update Task Status**
+
+**PUT** `/tasks/{task_id}?status=completed`
+
+---
+
+## 🔧 Configuration
+
+### **Environment Variables**
+
+Create a `.env` file in the project root:
+
+```env
 # OpenAI API Configuration
 OPENAI_API_KEY=your_openai_api_key_here
 
 # Database Configuration
 DATABASE_URL=sqlite:///./planner.db
 
-# For PostgreSQL, use:
+# For PostgreSQL
 # DATABASE_URL=postgresql://user:password@localhost:5432/planner
 
-# Optional: Backend Port
+# Optional: Ports
 BACKEND_PORT=8000
-
-# Optional: Frontend Port  
 FRONTEND_PORT=3000
-Database
-The application uses SQLite by default. For production, consider using PostgreSQL:
+```
 
-env
+### **Database**
+
+Default: **SQLite**
+Production: **PostgreSQL**
+
+Example:
+
+```env
 DATABASE_URL=postgresql://user:password@localhost:5432/planner
-🗂️ Project Structure
-text
+```
+
+---
+
+## 🗂️ Project Structure
+
+```
 smart-task-planner/
 ├── backend/
 │   ├── app/
@@ -165,162 +202,165 @@ smart-task-planner/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/       # React components
-│   │   ├── pages/           # Page components
-│   │   ├── utils/           # API utilities
-│   │   └── App.jsx          # Main app component
+│   │   ├── pages/            # Page components
+│   │   ├── utils/            # API utilities
+│   │   └── App.jsx           # Main app component
 │   ├── public/
 │   └── package.json
 └── docker-compose.yml
-🧪 Testing
-Backend Tests
-bash
+```
+
+---
+
+## 🧪 Testing
+
+**Backend Tests**
+
+```bash
 cd backend
 pytest
-Frontend Tests
-bash
+```
+
+**Frontend Tests**
+
+```bash
 cd frontend
 npm test
-API Testing
-bash
-# Using curl to test the API
+```
+
+**API Testing**
+
+```bash
 curl -X POST "http://localhost:8000/plan" \
   -H "Content-Type: application/json" \
   -d '{"goal": "Learn React in 2 weeks", "timeframe": "2 weeks"}'
-📊 Evaluation Criteria Met
-✅ Task Completeness
-AI generates comprehensive task breakdowns with detailed descriptions
+```
 
-Covers all aspects of goal achievement
+---
 
-Includes both strategic and tactical tasks
+## 📊 Evaluation Criteria Met
 
-✅ Timeline Logic
-Realistic time estimates based on task complexity
+✅ **Task Completeness**
 
-Proper dependency mapping
+* AI generates comprehensive, multi-level task breakdowns
+* Covers strategic and tactical aspects of goals
 
-Sequential task ordering
+✅ **Timeline Logic**
 
-Consideration of parallel execution where possible
+* Realistic time estimates
+* Proper dependency mapping and sequential ordering
 
-✅ LLM Reasoning
-Intelligent task decomposition using GPT-4
+✅ **LLM Reasoning**
 
-Context-aware dependency identification
+* Intelligent GPT-4-based decomposition
+* Context-aware planning
+* API failure fallback
 
-Adaptive planning based on goal complexity
+✅ **Code & API Design**
 
-Fallback mechanisms for API failures
+* Modular FastAPI backend
+* Modern React frontend
+* RESTful endpoints with error handling
 
-✅ Code & API Design
-Clean, modular FastAPI backend
+✅ **Database Integration**
 
-Modern React frontend with hooks
+* SQLAlchemy ORM
+* Persistent storage for goals and tasks
 
-RESTful API design
+✅ **Deployment Ready**
 
-Proper error handling and validation
+* Dockerized architecture
+* Configurable for production
+* Scalable setup
 
-Comprehensive documentation
+---
 
-✅ Database Integration
-SQLAlchemy ORM with proper relationships
+## 🚀 Deployment
 
-Data persistence for goals and tasks
+**Production (Docker):**
 
-Efficient query patterns
-
-Migration-ready structure
-
-✅ Deployment Ready
-Docker containerization
-
-Environment-based configuration
-
-Production-ready setup
-
-Scalable architecture
-
-🚀 Deployment
-Production with Docker
-bash
+```bash
 docker-compose -f docker-compose.prod.yml up -d
-Cloud Deployment
-The application can be deployed to:
+```
 
-AWS (ECS/EKS)
+**Supported Cloud Platforms:**
 
-Google Cloud Platform
+* AWS (ECS / EKS)
+* Google Cloud Platform
+* Azure Container Instances
+* Heroku
+* DigitalOcean App Platform
 
-Azure Container Instances
+---
 
-Heroku
+## 🤝 Contributing
 
-DigitalOcean App Platform
+1. **Fork** the repository
+2. **Create a feature branch**
 
-🤝 Contributing
-Fork the repository
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+3. **Commit changes**
 
-Create a feature branch (git checkout -b feature/amazing-feature)
+   ```bash
+   git commit -m 'Add some amazing feature'
+   ```
+4. **Push to branch**
 
-Commit your changes (git commit -m 'Add some amazing feature')
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+5. **Open a Pull Request**
 
-Push to the branch (git push origin feature/amazing-feature)
+---
 
-Open a Pull Request
+## 📝 License
 
-📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
-🆘 Troubleshooting
-Common Issues
-OpenAI API Errors
+---
 
-Verify your API key is correct
+## 🆘 Troubleshooting
 
-Check your OpenAI account balance
+**OpenAI API Errors**
 
-Ensure the API key has proper permissions
+* Verify your API key
+* Check account balance
+* Ensure correct permissions
 
-Database Connection Issues
+**Database Issues**
 
-Verify database URL format
+* Verify database URL
+* Check file permissions
+* Ensure DB server is running
 
-Check file permissions for SQLite
+**CORS Errors**
 
-Ensure database server is running
+* Verify allowed origins
+* Check backend CORS setup
 
-CORS Errors
+**Build Failures**
 
-Verify frontend URL is in allowed origins
+* Clear Docker cache
+* Reinstall dependencies
+* Check Node.js and Python versions
 
-Check backend CORS configuration
+---
 
-Build Failures
+## 🎯 Demo
 
-Clear Docker cache: docker-compose build --no-cache
+### Example Usage
 
-Reinstall dependencies
+**Input:**
 
-Check Node.js and Python versions
+> “Launch a product in 2 weeks”
 
-Getting Help
-Check the API documentation at /docs
+**AI Output:**
 
-Review the application logs
+* 15+ actionable tasks
+* Realistic time estimates (4–8 hours each)
+* Prioritized sequence
+* Timeline visualization
 
-Open an issue on GitHub
-
-🎯 Demo
-Example Usage
-Input: "Launch a product in 2 weeks"
-
-AI Output:
-
-15+ actionable tasks with dependencies
-
-Realistic time estimates (4-8 hours per task)
-
-Priority-based sequencing
-
-Timeline visualization
+---
